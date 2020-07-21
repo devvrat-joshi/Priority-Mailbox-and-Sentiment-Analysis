@@ -1,0 +1,14 @@
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\bin\Debug\ModularAddin.dll
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\bin\Debug\ModularAddin.pdb
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\bin\Debug\ModularAddin.dll.manifest
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\bin\Debug\ModularAddin.vsto
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\bin\Debug\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\obj\Debug\ModularAddin.csprojAssemblyReference.cache
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\obj\Debug\ModularAddin.Properties.Resources.resources
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\obj\Debug\ModularAddin.Ribbon1.resources
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\obj\Debug\ModularAddin.csproj.GenerateResource.cache
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\obj\Debug\ModularAddin.csproj.CoreCompileInputs.cache
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\obj\Debug\ModularAddin.csproj.CopyComplete
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\obj\Debug\ModularAddin.dll
+C:\Users\Devvrat\source\repos\ModularAddin\ModularAddin\obj\Debug\ModularAddin.pdb

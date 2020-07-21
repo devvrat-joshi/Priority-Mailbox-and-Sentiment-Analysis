@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI onLoad="Ribbon_Load" xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+    <ribbon>
+        <tabs>
+            <tab idMso="TabAddIns" label="ModularAddin">
+                <group id="group1" label="Controls">
+                    <button id="button2" getImage="bt2_img" onAction="button2_Click" label="Start Addin" size="large" />
+                    <button id="button1" getImage="bt1_img" onAction="button1_Click" label="Sentiment Analysis" size="large" />
+                </group>
+                <group id="group5" label="Priority Mail Control">
+                    <button id="button7 " getImage="bt7_img" onAction="button7_Click" label="Prioritize" size="large" />
+                    <button id="button9" getImage="bt9_img" onAction="button9_Click" label="Current Model State" size="large" />
+                    <button id="button10" getImage="bt10_img" onAction="button10_Click" label="Update Model Latest" size="large" />
+                    <button id="button8" getImage="bt8_img" onAction="button8_Click" label="UnPrioritize" size="large" />
+                </group>
+                <group id="group2" label="Settings">
+                    <button id="button3"  getImage="bt3_img" onAction="button3_Click" label="Change Settings" size="large" />
+                </group>
+                <group id="group3" label="Help">
+                    <button id="button5" getImage="bt5_img" onAction="button5_Click" label="About" size="large" />
+                    <button id="button4" getImage="bt4_img" onAction="button4_Click_1" label="Help" size="large" />
+                </group>
+                <group id="group4" label="DB Manual Mode">
+                    <button id="button6" getImage="bt6_img" onAction="button6_Click" label="Interactive DB" size="large" />
+                </group>
+                <group id="group6" label="IMPORTANCE ORDER">
+                    <labelControl id="label1" label="Red Importance Highest" />
+                    <labelControl id="label2" label="Orange Important " />
+                    <labelControl id="label3" label="Yellow Medium Important" />
+                    <labelControl id="label4" label="Green Medium" />
+                    <labelControl id="label5" label="Blue Low Importance" />
+                    <labelControl id="label6" label="Purple can be ignored" />
+                </group>
+            </tab>
+        </tabs>
+    </ribbon>
+</customUI>

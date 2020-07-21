@@ -1,0 +1,115 @@
+Public WithEvents myOlExp As Outlook.Explorer
+Private Sub Application_NewMailEx(ByVal EntryIDCollection As String)
+Dim my_email As Outlook.MailItem
+Set my_email = Application.Session.GetItemFromID(EntryIDCollection)
+Dim ONS As Outlook.NameSpace
+Set ONS = Outlook.GetNamespace("MAPI")
+Dim FOL As Outlook.Folder
+
+Set fs = CreateObject("Scripting.FileSystemObject")
+Set a = fs.CreateTextFile("testfile.txt", True)
+a.writeline (my_email.Body)
+a.Close
+
+    
+Dim command As String
+Dim exec As Object
+'Dim output As Object
+    
+'Application.Wait (Now + TimeValue("0:00:50"))
+waitTill = Now() + TimeValue("00:00:02")
+
+While Now() < waitTill
+    DoEvents
+Wend
+
+Dim TextFile As Integer
+Dim FilePath As String
+Dim FileContent As String
+
+'File Path of Text File
+  FilePath = "C:\Users\Devvrat\Documents\pol.txt"
+
+'Determine the next file number available for use by the FileOpen function
+  TextFile = FreeFile
+
+'Open the text file
+  Open FilePath For Input As TextFile
+
+'Store file content inside a variable
+  FileContent = Input(LOF(TextFile), TextFile)
+
+'Report Out Text File Contents
+  
+
+'Close Text File
+  Close TextFile
+
+
+'Set output = exec.StdOut
+'Dim retval
+retval = CDbl(FileContent)
+If retval = 1 Then
+    Set FOL = ONS.GetDefaultFolder(olFolderInbox).Folders("Positive")
+   
+End If
+If retval = 2 Then
+    Set FOL = ONS.GetDefaultFolder(olFolderInbox).Folders("Neutral")
+    
+End If
+If retval = 3 Then
+    Set FOL = ONS.GetDefaultFolder(olFolderInbox).Folders("Negative")
+   
+End If
+my_email.Move FOL
+End Sub
+
+
+
+
+Public Sub Initialize_handler()
+ Set myOlExp = Application.ActiveExplorer
+End Sub
+
+Private Sub myOlExp_SelectionChange()
+ Dim currTime As Date
+ Dim oMail As Outlook.MailItem
+ currTime = time()
+ Set myOlExp = Application.ActiveExplorer
+ Set myOlSel = myOlExp.Selection
+ Dim x As Long
+ x = 1
+ If myOlSel.Item(x).Class = OlObjectClass.olMail Then
+ Set oMail = myOlSel.Item(x)
+ MsgTxt = MsgTxt & "Received Time: " & oMail.ReceivedTime & ", Read Time: " & Date & " " & currTime
+ 
+
+On Error GoTo oops
+Dim TextFile As Integer
+Dim FilePath As String
+Dim FileContent As String
+  FilePath = "C:\Users\Devvrat\Desktop\django_modular\maildata\" & oMail.EntryID & ".count"
+
+  TextFile = FreeFile
+  Open FilePath For Input As TextFile
+  FileContent = Input(LOF(TextFile), TextFile)
+  Close TextFile
+retval = CDbl(FileContent)
+retval = retval + 1
+Set fs = CreateObject("Scripting.FileSystemObject")
+Set a = fs.CreateTextFile("C:\Users\Devvrat\Desktop\django_modular\maildata\" & oMail.EntryID & ".count", True)
+a.writeline (retval)
+a.Close
+GoTo done
+
+oops:
+Set fs = CreateObject("Scripting.FileSystemObject")
+Set a = fs.CreateTextFile("C:\Users\Devvrat\Desktop\django_modular\maildata\" & oMail.EntryID & ".txt", True)
+a.writeline ("received time: " & oMail.ReceivedTime & ", Open Time: " & Date & " " & currTime & " sender: " & oMail.Sender & " senderaddress: " & oMail.SenderEmailAddress & " body: " & oMail.Body)
+a.Close
+Set a = fs.CreateTextFile("C:\Users\Devvrat\Desktop\django_modular\maildata\" & oMail.EntryID & ".count", True)
+a.writeline ("1")
+a.Close
+ End If
+done:
+End Sub
